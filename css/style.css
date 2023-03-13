@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #9e7676;
+  background: radial-gradient(circle, #9e7979 0%, #595454 100%);
+  height: 100vh;
+}
+.d-center {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+label {
+  margin-bottom: 0;
+}
+table {
+  border-collapse: collapse;
+}
+td.selected {
+  background-color: #ffffff;
+}
+img{
+    object-fit: cover;
+}
+.logo{
+    max-width: 60px;
+}
+.border-start{
+  border-left: 10px solid #ffffff;
+  padding-left: 10px;
+}
