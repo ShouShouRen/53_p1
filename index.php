@@ -94,7 +94,7 @@ try {
                                 商品名稱:<?php echo $row["product_name"]; ?></div>
                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">
                                 商品簡介:<?php echo $row["product_des"]; ?></div>
-                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light" style="font-size:15px;">
                                 發布日期:<?php echo $row["time"]; ?></div>
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">
                                 費用:<?php echo $row["price"]; ?> 元</div>
@@ -122,7 +122,7 @@ try {
                                 費用:<?php echo $row["price"]; ?> 元</div>
                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">
                                 商品簡介:<?php echo $row["product_des"]; ?></div>
-                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light" style="font-size:15px;">
                                 發布日期:<?php echo $row["time"]; ?></div>
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">相關連結:<a
                                     href="<?php echo $row["links"]; ?>"><?php echo $row["links"]; ?></a></div>
@@ -144,7 +144,7 @@ try {
                                 商品名稱:<?php echo $row["product_name"]; ?></div>
                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">
                                 商品簡介:<?php echo $row["product_des"]; ?></div>
-                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light" style="font-size:15px;">
                                 發布日期:<?php echo $row["time"]; ?></div>
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">
                                 費用:<?php echo $row["price"]; ?> 元</div>
@@ -172,7 +172,7 @@ try {
                                 費用:<?php echo $row["price"]; ?> 元</div>
                             <div class="bg-2 w-100 h-30 mt-1 py-4 text-center text-light">
                                 商品簡介:<?php echo $row["product_des"]; ?></div>
-                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light">
+                            <div class="bg-3 w-100 h-20 mt-1 py-3 text-center text-light" style="font-size:15px;">
                                 發布日期:<?php echo $row["time"]; ?></div>
                             <div class="bg-1 w-100 h-20 mt-1 py-3 text-center text-light">
                                 商品名稱:<?php echo $row["product_name"]; ?></div>
@@ -227,8 +227,15 @@ try {
                                         value="<?php echo $default_time_str ?>">
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between my-3">
-                                    <label for="">圖片:</label>
-                                    <input type="file" name="images" id="images">
+                                    <label for="">當前圖片:</label>
+                                    <img src="" class="w-25 h-25" alt="" id="img">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-3">
+                                    <label for="">選取圖片:</label>
+                                    <div class="custom-file w-75">
+                                        <input type="file" class="custom-file-input" id="images" name="images">
+                                        <label class="custom-file-label" for="images">選擇檔案</label>
+                                    </div>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">費用:</label>
