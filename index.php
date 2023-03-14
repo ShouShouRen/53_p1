@@ -65,7 +65,7 @@
             </form>
             <div class="row justify-content-start mt-4" id="search-results">
                 <?php foreach($result as $row) { ?>
-                    <?php if ($row["template"] == 1) { ?>
+                <?php if ($row["template"] == 1) { ?>
                 <div class="col-6" style="height:380px">
                     <div class="d-flex text-center bg-back px-2 py-3 flex-wrap">
                         <div class="col-6">
@@ -86,10 +86,10 @@
                         </div>
                         <div class="col-12 mt-2">
                             <?php
-                                    if ($_SESSION["AUTH"]["role"] == 0) {
-                                        echo "<button class='btn btn-secondary btn-sm edit-product' data-toggle='modal' data-id='" . $row['id'] . "' data-target='#edit-product'>編輯</button>";
-                                    }
-                                ?>
+                                if ($_SESSION["AUTH"]["role"] == 0) {
+                                    echo "<button class='btn btn-secondary btn-sm edit-product' data-toggle='modal' data-id='" . $row['id'] . "' data-target='#edit-product'>編輯</button>";
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -179,6 +179,67 @@
                 </div>
                 <?php } ?>
                 <?php } ?>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="edit-product">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editLabel">修改商品內容</h5>
+                            <button class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-sm px-5 py-4">
+                                <form action="update_product.php" method="post">
+                                    <div class="d-flex align-items-center justify-content-between my-3">
+                                        <label for="">商品名稱:</label>
+                                        <input type="text" class="form-control w-75" name="product_name"
+                                            id="product_name">
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between my-3">
+                                        <label for="">商品描述:</label>
+                                        <textarea class="form-control w-75" name="product_des"
+                                            id="product_des"></textarea>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between my-3">
+                                        <label for="">發布日期:</label>
+                                        <?php
+                                    $default_time = new DateTime('now', new DateTimeZone('Asia/Taipei'));
+                                    $default_time_str = $default_time->format('Y-m-d\TH:i:s');
+                                    ?>
+                                        <input type="datetime-local" class="form-control w-75" name="time" id="time"
+                                            value="<?= $default_time_str ?>">
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between my-3">
+                                        <label for="">當前圖片:</label>
+                                        <img src="" class="w-50 h-50" alt="" id="img">
+                                    </div>
+                                    <div class="d-flex align-tiems-center justify-content-between">
+                                        <label for="">選取圖片:</label>
+                                        <div class="custom-file w-75">
+    <input type="file" class="custom-file-input" id="images" name="images">
+    <label class="custom-file-label" for="images">選擇檔案</label>
+    </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between my-3">
+                                        <label for="">費用:</label>
+                                        <input type="text" class="form-control w-75" id="price" name="price">
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between my-3">
+                                        <label for="">相關連結:</label>
+                                        <input type="text" class="form-control w-75" id="links" name="links">
+                                    </div>
+                                    <div class="text-right my-3">
+                                        <input type="submit" class="btn btn-primary" id="save-product" value="儲存">
+                                    </div>
+                                    <input type="hidden" name="id" value="<?=$row["id"]?>" id="id">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

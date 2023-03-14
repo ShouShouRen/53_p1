@@ -215,9 +215,57 @@ $(function () {
         console.log(response);
         $("#search_result").html(response);
         $(".show-all").addClass("d-none");
-      //   if (document.getElementById("search-input").value === '') {
-      //     location.reload();
-      // }
+        //   if (document.getElementById("search-input").value === '') {
+        //     location.reload();
+        // }
+      },
+    });
+  });
+  $(".edit-product").click(function () {
+    let product_id = $(this).data("id");
+    $.ajax({
+      url: "get_product.php",
+      type: "get",
+      data: {
+        id: product_id,
+      },
+      dataType: "json",
+      success: function (response) {
+        console.log(response);
+        $("#product_name").val(response[0].product_name);
+        $("#product_des").val(response[0].product_des);
+        $("#img").attr("src", "./images/" + response[0].images);
+        $("#price").val(response[0].price);
+        $("#links").val(response[0].links);
+      },
+    });
+  });
+  $("#save-product").click(function () {
+    let product_name = $("#product_name").val();
+    let product_des = $("#product_des").val();
+    let time = $("#time").val();
+    let price = $("#price").val();
+    let links = $("#links").val();
+    let id = $("#id").val();
+    let formData = new FormData();
+    formData.append("product_name", product_name);
+    formData.append("product_des", product_des);
+    formData.append("time", time);
+    formData.append("price", price);
+    formData.append("links", links);
+    formData.append("id", id);
+    formData.append("images", $("#images")[0].files[0]);
+
+    $.ajax({
+      url: "update_product.php",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        console.log("Success: " + response);
+        alert("儲存成功");
+        // window.location.reload();
       },
     });
   });
