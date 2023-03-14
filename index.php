@@ -6,14 +6,15 @@
     }
     try{
         extract($_POST);
-        // $sql = "SELECT * FROM products ORDER BY products.time DESC";
-
+        $sql = "SELECT * FROM `products` ORDER BY `products`.`time` DESC";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
     }catch(PDOException $e){
         echo $e->getMessage();
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 
 <head>
     <meta charset="UTF-8">
@@ -49,6 +50,9 @@
             </div>
         </div>
     </nav>
+    <div class="container" style="margin-top: 86px";>
+
+    </div>
 </body>
 <script src="./js/jquery-3.6.3.min.js"></script>
 <script src="./js/bootstrap.js"></script>
