@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2023 年 03 月 13 日 03:54
+-- 產生時間： 2023 年 03 月 15 日 11:49
 -- 伺服器版本： 10.4.27-MariaDB
 -- PHP 版本： 8.0.25
 
@@ -41,7 +41,18 @@ INSERT INTO `login_log` (`user`, `login_time`, `status`) VALUES
 ('admin', '2023-03-13 10:42:26', '登入成功'),
 ('dfsdsf', '2023-03-13 10:50:35', '登入失敗'),
 ('admin', '2023-03-13 10:51:28', '登入成功'),
-('1234', '2023-03-13 10:54:16', '登入失敗');
+('1234', '2023-03-13 10:54:16', '登入失敗'),
+('admin', '2023-03-14 10:55:19', '登入成功'),
+('coffee', '2023-03-14 11:10:42', '登入失敗'),
+('admin', '2023-03-14 11:10:49', '登入成功'),
+('admin', '2023-03-14 11:18:15', '登入成功'),
+('coffee', '2023-03-14 11:40:11', '登入成功'),
+('admin', '2023-03-14 11:40:24', '登入成功'),
+('admin', '2023-03-14 11:43:12', '登入失敗'),
+('admin', '2023-03-14 11:43:19', '登入成功'),
+('admin', '2023-03-14 11:46:58', '登入失敗'),
+('admin', '2023-03-14 11:47:06', '登入成功'),
+('admin', '2023-03-14 13:13:55', '登入成功');
 
 -- --------------------------------------------------------
 
@@ -65,8 +76,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_name`, `product_des`, `price`, `links`, `time`, `images`, `template`) VALUES
-(1, '黑咖啡', '好喝的黑咖啡，濃醇香。', '90', 'coffee.com', '2023-03-14 10:02:16', '70584e942a29aa478fbaa0faf112d10a.jpg', '1'),
-(2, '咖啡', '好喝的咖啡', '100', 'coffee.com', '2023-03-14 10:47:40', '3734058876904565f2ab6e19addfd0d5.jpg', '2');
+(1, '2咖啡s', '2好喝的咖啡s', '200', 'coffee.coms', '2023-03-15 08:53:35', '7344c7f4b21e433b844e60b696078170.jpg', '1'),
+(2, '2咖啡', '2好喝的咖啡', '200', '2coffee.coms', '2023-03-15 08:53:18', '70584e942a29aa478fbaa0faf112d10a.jpg', '2');
 
 -- --------------------------------------------------------
 
@@ -96,6 +107,12 @@ INSERT INTO `users` (`id`, `user`, `pw`, `user_name`, `role`, `user_id`) VALUES
 --
 
 --
+-- 資料表索引 `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 資料表索引 `users`
 --
 ALTER TABLE `users`
@@ -104,6 +121,12 @@ ALTER TABLE `users`
 --
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
