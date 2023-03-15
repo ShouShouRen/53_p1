@@ -29,41 +29,29 @@ try {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
-                <img src="./logos.png" class="logo mx-3" alt="">
+            <a href="index.php" class="navbar-brand">
+                <img src="./images/logos.png" class="logo mx-3" alt="">
                 <span>咖啡商品展示系統</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll " style="max-height: 100px;">
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto my-2" style="max-height: 100px;">
                     <li class="nav-item">
-                        <?php
-                        if ($_SESSION["AUTH"]["role"] == 0) {
-                            echo '<a class="nav-link" href="create.php">上架商品</a>';
-                        }
-                        ?>
+                        <?php echo $_SESSION["AUTH"]["role"] == 0 ? '<a class="nav-link" href="create_product.php">上架商品</a>' : ''; ?>
                     </li>
                     <li class="nav-item">
-                        <?php
-                        if ($_SESSION["AUTH"]["role"] == 0) {
-                            echo '<a class="nav-link" href="member_list.php">會員管理</a>';
-                        }
-                        ?>
+                        <?php echo $_SESSION["AUTH"]["role"] == 0 ? '<a class="nav-link" href="member_list.php">會員管理</a>' : ''; ?>
                     </li>
                     <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION["AUTH"])) {
-                            echo '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>';
-                        }
-                        ?>
+                        <?php echo isset($_SESSION["AUTH"]) ? '<a class="nav-link btn btn-outline-warning" href="logout.php">登出</a>' : ''; ?>
                     </li>
                 </ul>
             </div>
+        </div>
     </nav>
     <div class="container" style="margin-top: 86px;">
         <div class="row pt-3 pb-5 justify-content-between">
