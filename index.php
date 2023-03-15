@@ -195,7 +195,7 @@ try {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form enctype="multipart/form-data">
                                 <div class="d-flex align-items-center justify-content-between my-3">
                                     <label for="">商品標題:</label>
                                     <input type="text" class="form-control w-75" name="product_name" id="product_name">
