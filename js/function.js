@@ -256,7 +256,7 @@ $(function () {
     };
 
     $.ajax({
-      url: "save_product.php",
+      url: "update_product.php",
       type: "POST",
       data: JSON.stringify(data),
       contentType: "application/json",
