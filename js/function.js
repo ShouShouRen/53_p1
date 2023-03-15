@@ -79,7 +79,7 @@ $(function () {
   const resetTime = () => {
     clearInterval(timer);
     timeleft = parseInt($("#timeInput").val());
-    startTimer(); 
+    startTimer();
   };
 
   $("#setTimeBtn").on("click", setTime);
@@ -240,32 +240,33 @@ $(function () {
       },
     });
   });
-  $("#save-product").click(function () {
+  $("#save-product").click(function (e) {
+    e.preventDefault();
     let product_name = $("#product_name").val();
     let product_des = $("#product_des").val();
     let time = $("#time").val();
     let price = $("#price").val();
     let links = $("#links").val();
     let id = $("#id").val();
-    let formData = new FormData();
-    formData.append("product_name", product_name);
-    formData.append("product_des", product_des);
-    formData.append("time", time);
-    formData.append("price", price);
-    formData.append("links", links);
-    formData.append("id", id);
-    formData.append("images", $("#images")[0].files[0]);
+
+    let data = {
+      product_name: product_name,
+      product_des: product_des,
+      time: time,
+      price: price,
+      links: links,
+      id: id,
+    };
 
     $.ajax({
       url: "update_product.php",
       type: "POST",
-      data: formData,
-      processData: false,
-      contentType: false,
+      data: JSON.stringify(data),
+      contentType: "application/json",
       success: function (response) {
         console.log("Success: " + response);
         alert("儲存成功");
-        // window.location.reload();
+        window.location.reload();
       },
     });
   });
