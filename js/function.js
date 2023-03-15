@@ -79,7 +79,7 @@ $(function () {
   const resetTime = () => {
     clearInterval(timer);
     timeleft = parseInt($("#timeInput").val());
-    startTimer();
+    startTimer(); 
   };
 
   $("#setTimeBtn").on("click", setTime);
