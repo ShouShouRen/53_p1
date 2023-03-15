@@ -240,8 +240,7 @@ $(function () {
       },
     });
   });
-  $("#save-product").click(function (e) {
-    e.preventDefault();
+  $("#save-product").click(function () {
     let product_name = $("#product_name").val();
     let product_des = $("#product_des").val();
     let time = $("#time").val();
@@ -259,14 +258,14 @@ $(function () {
     };
 
     $.ajax({
-      url: "update_product.php",
+      url: "save_product.php",
       type: "POST",
       data: JSON.stringify(data),
       contentType: "application/json",
       success: function (response) {
         console.log("Success: " + response);
         alert("儲存成功");
-        window.location.reload();
+        // window.location.reload();
       },
     });
   });
