@@ -235,7 +235,7 @@ try {
                                 <div class="text-right my-3">
                                     <input type="submit" class="btn btn-primary" id="save-product" value="儲存">
                                 </div>
-                                <input type="hidden" name="id" value="<?php echo $row["id"]?>" id="id">
+                                <input type="hidden" name="id" id="id">
                             </form>
                         </div>
                     </div>

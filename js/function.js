@@ -215,9 +215,6 @@ $(function () {
         console.log(response);
         $("#search_result").html(response);
         $(".show-all").addClass("d-none");
-        //   if (document.getElementById("search-input").value === '') {
-        //     location.reload();
-        // }
       },
     });
   });
@@ -232,6 +229,7 @@ $(function () {
       dataType: "json",
       success: function (response) {
         console.log(response);
+        $("#id").val(response[0].id);
         $("#product_name").val(response[0].product_name);
         $("#product_des").val(response[0].product_des);
         $("#img").attr("src", "./images/" + response[0].images);
