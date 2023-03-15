@@ -9,12 +9,17 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql_log = "SELECT * FROM login_log";
+    $stmt_log = $pdo->prepare($sql_log);
+    $stmt_log->execute();
+    $result_log = $stmt_log->fetchAll(PDO::FETCH_ASSOC);
 }catch(PDPException $e){
     echo $e->getMessage();
   }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 
 <head>
     <meta charset="UTF-8">
@@ -65,6 +70,8 @@
                 <div class="row justify-content-between alin-items-center mb-3">
                     <div class="col-6">
                         <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#adduser">新增使用者</button>
+                        <button class="btn btn-sm btn-secondary" data-toggle="modal"
+                            data-target="#log">使用者登出入紀錄</button>
                         <!-- Modal -->
                         <div class="modal fade" id="adduser">
                             <div class="modal-dialog">
@@ -99,9 +106,39 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal fade" id="log">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="logLabel">使用者登出入紀錄</h5>
+                                        <button class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">&times</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-sm px-5 py-4">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>帳號</th>
+                                                    <th>時間</th>
+                                                    <th>狀態</th>
+                                                </tr>
+                                                <?php foreach($result_log as $row){?>
+                                                <tr>
+                                                    <td><?=$row["user"]?></td>
+                                                    <td><?=$row["login_time"]?></td>
+                                                    <td><?=$row["status"]?></td>
+                                                </tr>
+                                                <?php }?>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-6">
-                        <form action="search_member.php" id="search-member"
+                        <form id="search-member"
                             class="d-flex justify-content-end align-items-center">
                             <div class="d-flex px-2">
                                 <label for="">升冪</label>

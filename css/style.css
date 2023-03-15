@@ -33,3 +33,34 @@ img{
   border-left: 10px solid #ffffff;
   padding-left: 10px;
 }
+.h-20{
+  height: 20%;
+}
+.h-30{
+  height: 30%;
+}
+.h-75{
+  height: 75%;
+}
+.bg-back{
+  background-color: #edd5d7;
+}
+.bg-1{
+  background-color: #adaaaa;
+}
+.bg-2{
+  background-color: #c19fa1;
+}
+.bg-3{
+  background-color: #7b5356;
+}
+.table{
+  background-color: #fff;
+  margin-bottom: 0;
+}
+.nav-tabs .nav-item a{
+  color: #bebebe;
+}
+.nav-tabs .nav-link.active{
+  color: #7b5356;
+}
